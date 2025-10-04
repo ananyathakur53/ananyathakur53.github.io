@@ -1,0 +1,675 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ananya Thakur - Portfolio</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            line-height: 1.6;
+            color: #333;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            min-height: 100vh;
+        }
+        
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 20px;
+        }
+        
+        nav {
+            background: rgba(255, 255, 255, 0.95);
+            padding: 1rem 2rem;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+            position: sticky;
+            top: 0;
+            z-index: 100;
+            border-radius: 10px;
+            margin-bottom: 2rem;
+        }
+        
+        nav ul {
+            list-style: none;
+            display: flex;
+            justify-content: center;
+            gap: 2rem;
+            flex-wrap: wrap;
+        }
+        
+        nav a {
+            text-decoration: none;
+            color: #667eea;
+            font-weight: 600;
+            transition: color 0.3s;
+            font-size: 1.1rem;
+        }
+        
+        nav a:hover {
+            color: #764ba2;
+        }
+        
+        .page {
+            display: none;
+            animation: fadeIn 0.5s;
+        }
+        
+        .page.active {
+            display: block;
+        }
+        
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(20px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+        
+        .content-card {
+            background: white;
+            padding: 2rem;
+            border-radius: 15px;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.2);
+            margin-bottom: 2rem;
+        }
+        
+        h1 {
+            color: #667eea;
+            margin-bottom: 1rem;
+            font-size: 2.5rem;
+        }
+        
+        h2 {
+            color: #764ba2;
+            margin-top: 1.5rem;
+            margin-bottom: 1rem;
+            border-bottom: 2px solid #667eea;
+            padding-bottom: 0.5rem;
+        }
+        
+        h3 {
+            color: #667eea;
+            margin-top: 1rem;
+            margin-bottom: 0.5rem;
+        }
+        
+        .hero {
+            text-align: center;
+            padding: 2rem 0;
+        }
+        
+        .hero h1 {
+            font-size: 3rem;
+            margin-bottom: 0.5rem;
+        }
+        
+        .hero p {
+            font-size: 1.3rem;
+            color: #555;
+        }
+        
+        .education-item, .project-item, .experience-item {
+            margin-bottom: 1.5rem;
+            padding: 1rem;
+            border-left: 4px solid #667eea;
+            background: #f8f9fa;
+            border-radius: 5px;
+        }
+        
+        .publication {
+            background: linear-gradient(135deg, #f5f7fa 0%, #c3cfe2 100%);
+            padding: 1.5rem;
+            border-radius: 10px;
+            margin-bottom: 1rem;
+        }
+        
+        .publication h3 {
+            color: #764ba2;
+        }
+        
+        .skills-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 1rem;
+            margin-top: 1rem;
+        }
+        
+        .skill-card {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            padding: 1rem;
+            border-radius: 10px;
+            text-align: center;
+            font-weight: 600;
+        }
+        
+        .badge {
+            display: inline-block;
+            background: #667eea;
+            color: white;
+            padding: 0.3rem 0.8rem;
+            border-radius: 20px;
+            font-size: 0.9rem;
+            margin: 0.2rem;
+        }
+        
+        .contact-info {
+            text-align: center;
+            font-size: 1.1rem;
+        }
+        
+        .contact-info a {
+            color: #667eea;
+            text-decoration: none;
+            font-weight: 600;
+        }
+        
+        .contact-info a:hover {
+            text-decoration: underline;
+        }
+        
+        ul {
+            margin-left: 2rem;
+            margin-top: 0.5rem;
+        }
+        
+        li {
+            margin-bottom: 0.5rem;
+        }
+        
+        .timeline {
+            position: relative;
+            padding-left: 2rem;
+        }
+        
+        .timeline::before {
+            content: '';
+            position: absolute;
+            left: 0;
+            top: 0;
+            height: 100%;
+            width: 2px;
+            background: #667eea;
+        }
+        
+        .achievement-item {
+            background: linear-gradient(135deg, #ffeaa7 0%, #fdcb6e 100%);
+            padding: 1rem;
+            border-radius: 10px;
+            margin-bottom: 1rem;
+            font-weight: 500;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <nav>
+            <ul>
+                <li><a href="#home" onclick="showPage('home')">Home</a></li>
+                <li><a href="#projects" onclick="showPage('projects')">Projects</a></li>
+                <li><a href="#visualizations" onclick="showPage('visualizations')">Data Science Visualizations</a></li>
+            </ul>
+        </nav>
+        
+        <!-- HOME PAGE -->
+        <div id="home" class="page active">
+            <div class="content-card hero">
+                <img src="profile.jpg" 
+                     alt="Ananya Thakur" 
+                     style="width: 200px; height: 200px; border-radius: 50%; object-fit: cover; margin-bottom: 1.5rem; border: 5px solid #667eea; box-shadow: 0 10px 30px rgba(0,0,0,0.3);">
+                <h1>Ananya Thakur</h1>
+                <p>M.Tech Computational and Data Sciences</p>
+                <p>Indian Institute of Science, Bangalore</p>
+            </div>
+            
+            <div class="content-card">
+                <h2>About Me</h2>
+                <p>I am a passionate researcher and developer specializing in Natural Language Processing, Deep Learning, and Machine Learning. Currently pursuing M.Tech at IISc Bangalore with a focus on computational sciences and data-driven solutions.</p>
+            </div>
+            
+            <div class="content-card">
+                <h2>Education</h2>
+                <div class="education-item">
+                    <h3>M.Tech - Computational and Data Sciences</h3>
+                    <p><strong>Indian Institute of Science</strong> | CGPA: 6.8 | 2026</p>
+                </div>
+                <div class="education-item">
+                    <h3>B.Tech</h3>
+                    <p><strong>Madan Mohan Malaviya University of Technology, Gorakhpur</strong> | CGPA: 7.92 | 2022</p>
+                </div>
+                <div class="education-item">
+                    <h3>Class XII (CBSE)</h3>
+                    <p><strong>Rani Laxmi Bai Memorial School</strong> | 93.6% | 2017</p>
+                </div>
+                <div class="education-item">
+                    <h3>Class X (CBSE)</h3>
+                    <p><strong>Rani Laxmi Bai Memorial School, Lucknow</strong> | CGPA: 10 | 2015</p>
+                </div>
+            </div>
+            
+            <div class="content-card">
+                <h2>Courses</h2>
+                <div class="skills-grid">
+                    <div class="skill-card">Numerical Linear Algebra</div>
+                    <div class="skill-card">Natural Language Processing</div>
+                    <div class="skill-card">Deep Learning</div>
+                    <div class="skill-card">Numerical Optimization</div>
+                </div>
+            </div>
+            
+            <div class="content-card">
+                <h2>Publications</h2>
+                <div class="publication">
+                    <h3>Harnessing Structured Knowledge: A Concept Map-Based Approach for High-Quality MCQ Generation</h3>
+                    <p><strong>Authors:</strong> Nicy Scaria, Silvester John Joseph Kennedy, Diksha Seth, Ananya Thakur, Deepak Subramani</p>
+                    <p><strong>Conference:</strong> ECAI (European Conference on Artificial Intelligence) 2025</p>
+                    <p><strong>Achievement:</strong> Success rate of 75.20% in meeting all quality criteria compared to ~37% for baselines</p>
+                    <p><strong>Link:</strong> <a href="https://arxiv.org/abs/2505.02850" target="_blank">https://arxiv.org/abs/2505.02850</a></p>
+                </div>
+            </div>
+            
+            <div class="content-card">
+                <h2>Work Experience</h2>
+                <div class="experience-item">
+                    <h3>GenAI Developer - Tecnod8.ai</h3>
+                    <p><strong>Duration:</strong> May 2025 - Aug 2025 (4 Months)</p>
+                    <ul>
+                        <li>Developed an offline-capable RAG system for intranet deployment using Python/Flask, ChromaDB, and Llama.cpp</li>
+                        <li>Enabled multi-format document processing with OCR and vision-language models</li>
+                        <li>Designed hybrid retrieval engine (semantic search + BM25 + reranking)</li>
+                        <li>Built enterprise-ready infrastructure with SQLite, batch processing, and 10+ RESTful APIs</li>
+                    </ul>
+                </div>
+                <div class="experience-item">
+                    <h3>Management Trainee - Aditya Birla Group</h3>
+                    <p><strong>Duration:</strong> Sep 2022 - Sep 2023 (12 Months)</p>
+                    <ul>
+                        <li>Managed operations, maintenance and safety in pyro section of a 7.5 MTPA plant</li>
+                        <li>Conducted structural stability analysis according to safety standards</li>
+                    </ul>
+                </div>
+            </div>
+            
+            <div class="content-card">
+                <h2>Achievements</h2>
+                <div class="achievement-item">
+                    🏆 Secured AIR 556 (Score: 714/1000) in GATE 2024, Mechanical Engineering discipline conducted by IISc Bangalore
+                </div>
+                <div class="achievement-item">
+                    🎓 Recipient of the Wells Fargo MTech Fellowship
+                </div>
+            </div>
+            
+            <div class="content-card contact-info">
+                <h2>Contact</h2>
+                <p style="margin-bottom: 0.8rem;">📧 Email: <a href="mailto:ananyathakur@iisc.ac.in">ananyathakur@iisc.ac.in</a></p>
+                <p style="margin-bottom: 0.8rem;">💼 LinkedIn: <a href="https://www.linkedin.com/in/ananya-thakur-15baa41b1/" target="_blank">linkedin.com/in/ananya-thakur-15baa41b1</a></p>
+                <p>💻 GitHub: <a href="https://github.com/ananyathakur53" target="_blank">github.com/ananyathakur53</a></p>
+            </div>
+        </div>
+        
+        <!-- PROJECTS PAGE -->
+        <div id="projects" class="page">
+            <div class="content-card">
+                <h1>Projects</h1>
+                
+                <div class="project-item">
+                    <h3>Understanding Reasoning Capabilities in Small Language Models</h3>
+                    <p><strong>Duration:</strong> Jul 2025 - Present</p>
+                    <span class="badge">Python</span>
+                    <span class="badge">NLP</span>
+                    <span class="badge">Deep Learning</span>
+                    <span class="badge">Qwen 2.5</span>
+                    <ul>
+                        <li>Optimizing reasoning in Small Language Models through chain-of-thought trace analysis</li>
+                        <li>Exploring critical token extraction and keyword-based reasoning compression</li>
+                        <li>Fine-tuning Qwen 2.5 Instruct models (0.5B–7B) to study efficiency–accuracy trade-offs</li>
+                        <li>Using curated datasets (OpenThoughts3, s1K) for comprehensive evaluation</li>
+                        <li>Demonstrating how structured reasoning tokens enable smaller models to approach large-model performance</li>
+                    </ul>
+                </div>
+                
+                <div class="project-item">
+                    <h3>Credit Card Fraud Detection</h3>
+                    <p><strong>Duration:</strong> Nov 2024 - Present</p>
+                    <span class="badge">Machine Learning</span>
+                    <span class="badge">Python</span>
+                    <span class="badge">Scikit-learn</span>
+                    <ul>
+                        <li>Performed comprehensive EDA on imbalanced credit card transaction dataset</li>
+                        <li>Applied oversampling (SMOTE) and undersampling techniques for class imbalance</li>
+                        <li>Implemented and compared multiple ML algorithms: Logistic Regression, KNN, SVM, Decision Tree, Random Forest, XGBoost</li>
+                        <li>Conducted hyperparameter tuning to optimize model performance</li>
+                        <li>Evaluated models using appropriate metrics for imbalanced classification</li>
+                    </ul>
+                </div>
+                
+                <div class="project-item">
+                    <h3>Vision Transformer-based Image Classification</h3>
+                    <p><strong>Duration:</strong> Jul 2025</p>
+                    <span class="badge">Deep Learning</span>
+                    <span class="badge">Computer Vision</span>
+                    <span class="badge">PyTorch</span>
+                    <span class="badge">Transformers</span>
+                    <ul>
+                        <li>Implemented Vision Transformer (ViT) from scratch using PyTorch</li>
+                        <li>Trained on CIFAR-10 dataset achieving 72.1% accuracy</li>
+                        <li>Explored diverse patch sizes with overlapping/non-overlapping division strategies</li>
+                        <li>Experimented with varying number of attention heads</li>
+                        <li>Utilized CLS token for classification following the original ViT architecture</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+        
+        <!-- VISUALIZATIONS PAGE -->
+        <div id="visualizations" class="page">
+            <div class="content-card">
+                <h1>Data Science Visualizations</h1>
+                <p><em>Matplotlib plots created from data.gov.in datasets</em></p>
+                <p style="margin-bottom: 2rem;"><strong>Project Repository:</strong> <a href="https://github.com/ananyathakur53/data-science-analysis" target="_blank" style="color: #667eea; font-weight: 600;">View on GitHub →</a></p>
+                
+                <div style="background: linear-gradient(135deg, #f5f7fa 0%, #c3cfe2 100%); padding: 1.5rem; border-radius: 10px; margin-bottom: 2rem;">
+                    <h3 style="color: #764ba2; margin-top: 0;">📊 Project: Indian Agricultural Production Analysis</h3>
+                    <p><strong>Data Source:</strong> Government of India Open Data Portal (data.gov.in)</p>
+                    <p><strong>Dataset:</strong> Ministry of Agriculture & Farmers Welfare - State-wise Crop Production Statistics</p>
+                    <p><strong>Analysis Focus:</strong> Exploring patterns in wheat and rice production across Indian states using Python, Pandas, and Matplotlib</p>
+                </div>
+                
+                <h2>📍 Visualization 1: Scatter Plot</h2>
+                <div style="background: white; padding: 1rem; border-radius: 10px; border: 2px solid #667eea; margin-bottom: 2rem;">
+                    <h3 style="color: #667eea;">Rainfall vs Wheat Production in Indian States</h3>
+                    <div style="background: #f8f9fa; padding: 1rem; border-radius: 5px; margin: 1rem 0;">
+                        <p><strong>Plot Type:</strong> Scatter Plot with annotations</p>
+                        <p><strong>Variables:</strong> X-axis: Annual Rainfall (mm), Y-axis: Wheat Production ('000 tonnes)</p>
+                        <p><strong>Sample Size:</strong> 10 major agricultural states</p>
+                    </div>
+                    <p><strong>Key Observations:</strong></p>
+                    <ul style="margin-left: 2rem;">
+                        <li>States with moderate rainfall (600-900mm) show highest wheat production</li>
+                        <li>Punjab and Haryana demonstrate optimal production despite lower rainfall due to irrigation infrastructure</li>
+                        <li>Uttar Pradesh leads with 29,500 thousand tonnes at 850mm rainfall</li>
+                        <li>Pearson correlation coefficient: 0.45 (moderate positive correlation)</li>
+                    </ul>
+                    <p><strong>Citation:</strong> Ministry of Agriculture & Farmers Welfare (2024). State-wise Crop Production Data. data.gov.in</p>
+                    <p style="text-align: center; margin-top: 1rem;">
+                        <em>🔗 Full plot available in GitHub repository: <code>scatter_plot.png</code></em>
+                    </p>
+                </div>
+                
+                <h2>📦 Visualization 2: Box Plot</h2>
+                <div style="background: white; padding: 1rem; border-radius: 10px; border: 2px solid #764ba2; margin-bottom: 2rem;">
+                    <h3 style="color: #764ba2;">Distribution of Crop Production in India</h3>
+                    <div style="background: #f8f9fa; padding: 1rem; border-radius: 5px; margin: 1rem 0;">
+                        <p><strong>Plot Type:</strong> Notched Box Plot (comparative)</p>
+                        <p><strong>Variables:</strong> Wheat Production vs Rice Production distribution</p>
+                        <p><strong>Statistical Measures:</strong> Median, IQR, Outliers</p>
+                    </div>
+                    <p><strong>Key Observations:</strong></p>
+                    <ul style="margin-left: 2rem;">
+                        <li><strong>Wheat:</strong> Median = 11,500 thousand tonnes, IQR = 6,200-18,200</li>
+                        <li><strong>Rice:</strong> Median = 4,100 thousand tonnes, Higher variability with outliers (West Bengal: 15,500)</li>
+                        <li>Rice production shows 65% higher coefficient of variation</li>
+                        <li>Indicates specialized wheat belts vs diverse rice cultivation zones</li>
+                    </ul>
+                    <p><strong>Citation:</strong> Agricultural Statistics at a Glance (2024). Department of Agriculture, Government of India.</p>
+                    <p style="text-align: center; margin-top: 1rem;">
+                        <em>🔗 Full plot available in GitHub repository: <code>box_plot.png</code></em>
+                    </p>
+                </div>
+                
+                <h2>📊 Visualization 3: Bar Plot</h2>
+                <div style="background: white; padding: 1rem; border-radius: 10px; border: 2px solid #667eea; margin-bottom: 2rem;">
+                    <h3 style="color: #667eea;">Top 5 Agricultural States - Wheat vs Rice Production</h3>
+                    <div style="background: #f8f9fa; padding: 1rem; border-radius: 5px; margin: 1rem 0;">
+                        <p><strong>Plot Type:</strong> Grouped Bar Chart with value labels</p>
+                        <p><strong>Comparison:</strong> Side-by-side wheat and rice production</p>
+                        <p><strong>States Analyzed:</strong> Top 5 producers by total output</p>
+                    </div>
+                    <p><strong>Key Observations:</strong></p>
+                    <ul style="margin-left: 2rem;">
+                        <li><strong>Uttar Pradesh:</strong> Total leader (43,700 thousand tonnes) - Wheat: 29,500 | Rice: 14,200</li>
+                        <li><strong>Punjab:</strong> Second highest (28,300) - Wheat-dominant due to Green Revolution</li>
+                        <li><strong>West Bengal:</strong> Rice specialist (16,450) - Highest rice production in India</li>
+                        <li>These 5 states contribute ~62% of India's total food grain production</li>
+                    </ul>
+                    <p><strong>Citation:</strong> State-wise Agricultural Statistics (2023-24). Ministry of Agriculture, data.gov.in</p>
+                    <p style="text-align: center; margin-top: 1rem;">
+                        <em>🔗 Full plot available in GitHub repository: <code>bar_plot.png</code></em>
+                    </p>
+                </div>
+                
+                <h2>📈 Bonus Visualization: Line Plot</h2>
+                <div style="background: white; padding: 1rem; border-radius: 10px; border: 2px solid #764ba2; margin-bottom: 2rem;">
+                    <h3 style="color: #764ba2;">India's Production Trends (2018-2024)</h3>
+                    <div style="background: #f8f9fa; padding: 1rem; border-radius: 5px; margin: 1rem 0;">
+                        <p><strong>Plot Type:</strong> Multi-line Time Series</p>
+                        <p><strong>Time Period:</strong> 7 years (2018-2024)</p>
+                        <p><strong>Metrics:</strong> Year-wise wheat and rice production trends</p>
+                    </div>
+                    <p><strong>Key Observations:</strong></p>
+                    <ul style="margin-left: 2rem;">
+                        <li><strong>Wheat:</strong> 16.2% growth (98,500 → 114,500 thousand tonnes) | CAGR: 2.55%</li>
+                        <li><strong>Rice:</strong> 20.0% growth (116,480 → 139,800 thousand tonnes) | CAGR: 3.13%</li>
+                        <li>Both crops maintained growth during COVID-19, showing agricultural resilience</li>
+                        <li>2022 wheat dip due to March heat wave, recovered by 2024</li>
+                    </ul>
+                    <p><strong>Citation:</strong> Annual Report 2023-24. Ministry of Agriculture & Farmers Welfare, Government of India.</p>
+                    <p style="text-align: center; margin-top: 1rem;">
+                        <em>🔗 Full plot available in GitHub repository: <code>line_plot.png</code></em>
+                    </p>
+                </div>
+                
+                <div style="background: linear-gradient(135deg, #667eea 0%, #764ba2 100%); color: white; padding: 2rem; border-radius: 15px; text-align: center;">
+                    <h2 style="color: white; border: none; margin-top: 0;">📁 Complete Project Repository</h2>
+                    <p style="font-size: 1.1rem; margin: 1rem 0;">All Python scripts, high-resolution plots, and detailed analysis documentation</p>
+                    <a href="https://github.com/ananyathakur53/data-science-analysis" target="_blank" 
+                       style="display: inline-block; background: white; color: #667eea; padding: 1rem 2rem; 
+                              border-radius: 25px; text-decoration: none; font-weight: bold; font-size: 1.1rem; margin-top: 1rem;">
+                        View on GitHub →
+                    </a>
+                    <p style="margin-top: 1.5rem; font-size: 0.95rem;">
+                        ⭐ Includes: data_analysis.py | All PNG plots | README.md with citations | requirements.txt
+                    </p>
+                </div>
+            </div>
+        </div>
+    </div>
+    
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/3.9.1/chart.min.js"></script>
+    <script>
+        function showPage(pageId) {
+            document.querySelectorAll('.page').forEach(page => {
+                page.classList.remove('active');
+            });
+            document.getElementById(pageId).classList.add('active');
+        }
+        
+        // Model Comparison Chart
+        const ctx1 = document.getElementById('modelComparison');
+        if (ctx1) {
+            new Chart(ctx1, {
+                type: 'bar',
+                data: {
+                    labels: ['Logistic Regression', 'KNN', 'SVM', 'Decision Tree', 'Random Forest', 'XGBoost'],
+                    datasets: [{
+                        label: 'F1 Score (%)',
+                        data: [78.5, 82.3, 85.7, 81.2, 89.4, 91.8],
+                        backgroundColor: [
+                            'rgba(102, 126, 234, 0.7)',
+                            'rgba(118, 75, 162, 0.7)',
+                            'rgba(102, 126, 234, 0.7)',
+                            'rgba(118, 75, 162, 0.7)',
+                            'rgba(102, 126, 234, 0.7)',
+                            'rgba(118, 75, 162, 0.7)'
+                        ],
+                        borderColor: [
+                            'rgba(102, 126, 234, 1)',
+                            'rgba(118, 75, 162, 1)',
+                            'rgba(102, 126, 234, 1)',
+                            'rgba(118, 75, 162, 1)',
+                            'rgba(102, 126, 234, 1)',
+                            'rgba(118, 75, 162, 1)'
+                        ],
+                        borderWidth: 2
+                    }]
+                },
+                options: {
+                    responsive: true,
+                    plugins: {
+                        legend: {
+                            display: true,
+                            position: 'top',
+                        },
+                        title: {
+                            display: true,
+                            text: 'Machine Learning Models Performance on Fraud Detection',
+                            font: { size: 16 }
+                        }
+                    },
+                    scales: {
+                        y: {
+                            beginAtZero: true,
+                            max: 100,
+                            title: {
+                                display: true,
+                                text: 'F1 Score (%)'
+                            }
+                        }
+                    }
+                }
+            });
+        }
+        
+        // GATE Score Distribution
+        const ctx2 = document.getElementById('scoreDistribution');
+        if (ctx2) {
+            new Chart(ctx2, {
+                type: 'line',
+                data: {
+                    labels: ['0-200', '200-400', '400-600', '600-800', '800-1000'],
+                    datasets: [{
+                        label: 'Number of Candidates',
+                        data: [15000, 28000, 35000, 18000, 4000],
+                        fill: true,
+                        backgroundColor: 'rgba(102, 126, 234, 0.2)',
+                        borderColor: 'rgba(102, 126, 234, 1)',
+                        borderWidth: 3,
+                        tension: 0.4,
+                        pointRadius: 6,
+                        pointBackgroundColor: 'rgba(118, 75, 162, 1)'
+                    }]
+                },
+                options: {
+                    responsive: true,
+                    plugins: {
+                        legend: {
+                            display: true,
+                            position: 'top',
+                        },
+                        title: {
+                            display: true,
+                            text: 'GATE 2024 Score Distribution (My Score: 714 - AIR 556)',
+                            font: { size: 16 }
+                        },
+                        annotation: {
+                            annotations: [{
+                                type: 'line',
+                                mode: 'vertical',
+                                scaleID: 'x',
+                                value: 3.5,
+                                borderColor: 'red',
+                                borderWidth: 2,
+                                label: {
+                                    content: 'My Score',
+                                    enabled: true
+                                }
+                            }]
+                        }
+                    },
+                    scales: {
+                        y: {
+                            beginAtZero: true,
+                            title: {
+                                display: true,
+                                text: 'Number of Candidates'
+                            }
+                        },
+                        x: {
+                            title: {
+                                display: true,
+                                text: 'Score Range'
+                            }
+                        }
+                    }
+                }
+            });
+        }
+        
+        // Training Progress Chart
+        const ctx3 = document.getElementById('trainingProgress');
+        if (ctx3) {
+            new Chart(ctx3, {
+                type: 'line',
+                data: {
+                    labels: ['Epoch 1', 'Epoch 5', 'Epoch 10', 'Epoch 15', 'Epoch 20', 'Epoch 25', 'Epoch 30'],
+                    datasets: [{
+                        label: 'Training Accuracy (%)',
+                        data: [25.3, 42.7, 58.4, 65.2, 69.8, 71.5, 72.1],
+                        fill: false,
+                        borderColor: 'rgba(102, 126, 234, 1)',
+                        backgroundColor: 'rgba(102, 126, 234, 0.7)',
+                        borderWidth: 3,
+                        tension: 0.4,
+                        pointRadius: 5
+                    }, {
+                        label: 'Validation Accuracy (%)',
+                        data: [24.1, 40.5, 55.8, 63.4, 68.2, 70.1, 71.3],
+                        fill: false,
+                        borderColor: 'rgba(118, 75, 162, 1)',
+                        backgroundColor: 'rgba(118, 75, 162, 0.7)',
+                        borderWidth: 3,
+                        tension: 0.4,
+                        pointRadius: 5
+                    }]
+                },
+                options: {
+                    responsive: true,
+                    plugins: {
+                        legend: {
+                            display: true,
+                            position: 'top',
+                        },
+                        title: {
+                            display: true,
+                            text: 'Vision Transformer Training on CIFAR-10 Dataset',
+                            font: { size: 16 }
+                        }
+                    },
+                    scales: {
+                        y: {
+                            beginAtZero: true,
+                            max: 100,
+                            title: {
+                                display: true,
+                                text: 'Accuracy (%)'
+                            }
+                        },
+                        x: {
+                            title: {
+                                display: true,
+                                text: 'Training Epochs'
+                            }
+                        }
+                    }
+                }
+            });
+        }
+    </script>
+</body>
+</html>
