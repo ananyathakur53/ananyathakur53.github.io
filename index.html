@@ -1,4 +1,127 @@
-<!DOCTYPE html>
+<!-- VISUALIZATIONS PAGE -->
+        <div id="visualizations" class="page">
+            <div class="content-card">
+                <h1>Data Science Visualizations</h1>
+                <p><em>Matplotlib plots created from data.gov.in datasets</em></p>
+                <p style="margin-bottom: 2rem;"><strong>Project Repository:</strong> <a href="https://github.com/ananyathakur53/data-science-analysis" target="_blank" style="color: #667eea; font-weight: 600;">View on GitHub →</a></p>
+                
+                <div style="background: linear-gradient(135deg, #f5f7fa 0%, #c3cfe2 100%); padding: 1.5rem; border-radius: 10px; margin-bottom: 2rem;">
+                    <h3 style="color: #764ba2; margin-top: 0;">📊 Project: Indian Agricultural Production Analysis</h3>
+                    <p><strong>Data Source:</strong> Government of India Open Data Portal (data.gov.in)</p>
+                    <p><strong>Dataset:</strong> Ministry of Agriculture & Farmers Welfare - State-wise Crop Production Statistics</p>
+                    <p><strong>Analysis Tools:</strong> Python, Pandas, Matplotlib, Seaborn, NumPy</p>
+                </div>
+                
+                <h2>📍 Plot 1: Scatter Plot</h2>
+                <div style="background: white; padding: 1.5rem; border-radius: 10px; border: 2px solid #667eea; margin-bottom: 2rem;">
+                    <h3 style="color: #667eea;">Rainfall vs Wheat Production in Indian States</h3>
+                    <img src="scatter_plot.png" alt="Scatter Plot" style="width: 100%; max-width: 900px; display: block; margin: 1rem auto; border-radius: 8px; box-shadow: 0 4px 8px rgba(0,0,0,0.1);">
+                    <div style="background: #f8f9fa; padding: 1rem; border-radius: 5px; margin: 1rem 0;">
+                        <p><strong>Plot Type:</strong> Scatter Plot with trend line and annotations</p>
+                        <p><strong>Variables:</strong> X-axis: Annual Rainfall (mm), Y-axis: Wheat Production ('000 tonnes)</p>
+                        <p><strong>Sample Size:</strong> 15 major agricultural states</p>
+                    </div>
+                    <p><strong>Key Observations:</strong></p>
+                    <ul style="margin-left: 2rem;">
+                        <li>States with moderate rainfall (600-900mm) show highest wheat production efficiency</li>
+                        <li>Punjab and Haryana demonstrate optimal production despite lower rainfall due to advanced irrigation infrastructure</li>
+                        <li>Uttar Pradesh leads with 29,500 thousand tonnes at 850mm rainfall</li>
+                        <li>Positive correlation visible: Pearson coefficient = 0.45 (moderate positive)</li>
+                    </ul>
+                    <p><strong>Citation:</strong> Ministry of Agriculture & Farmers Welfare (2024). State-wise Crop Production Data. data.gov.in</p>
+                </div>
+                
+                <h2>📦 Plot 2: Box Plot</h2>
+                <div style="background: white; padding: 1.5rem; border-radius: 10px; border: 2px solid #764ba2; margin-bottom: 2rem;">
+                    <h3 style="color: #764ba2;">Distribution of Crop Production in India</h3>
+                    <img src="box_plot.png" alt="Box Plot" style="width: 100%; max-width: 900px; display: block; margin: 1rem auto; border-radius: 8px; box-shadow: 0 4px 8px rgba(0,0,0,0.1);">
+                    <div style="background: #f8f9fa; padding: 1rem; border-radius: 5px; margin: 1rem 0;">
+                        <p><strong>Plot Type:</strong> Notched Box Plot with mean and median indicators</p>
+                        <p><strong>Comparison:</strong> Wheat Production vs Rice Production distribution</p>
+                        <p><strong>Statistical Measures:</strong> Median, IQR, Outliers, Mean</p>
+                    </div>
+                    <p><strong>Key Observations:</strong></p>
+                    <ul style="margin-left: 2rem;">
+                        <li><strong>Wheat:</strong> Median = 11,500 thousand tonnes, IQR = 6,200-18,200</li>
+                        <li><strong>Rice:</strong> Median = 4,100 thousand tonnes, Higher variability with outliers (West Bengal: 15,500)</li>
+                        <li>Rice production shows 65% higher coefficient of variation compared to wheat</li>
+                        <li>Indicates specialized wheat belts vs diverse rice cultivation across climatic zones</li>
+                    </ul>
+                    <p><strong>Citation:</strong> Agricultural Statistics at a Glance (2024). Department of Agriculture, Government of India. data.gov.in</p>
+                </div>
+                
+                <h2>📊 Plot 3: Bar Plot</h2>
+                <div style="background: white; padding: 1.5rem; border-radius: 10px; border: 2px solid #667eea; margin-bottom: 2rem;">
+                    <h3 style="color: #667eea;">Top 5 Agricultural States - Wheat vs Rice Production</h3>
+                    <img src="bar_plot.png" alt="Bar Plot" style="width: 100%; max-width: 900px; display: block; margin: 1rem auto; border-radius: 8px; box-shadow: 0 4px 8px rgba(0,0,0,0.1);">
+                    <div style="background: #f8f9fa; padding: 1rem; border-radius: 5px; margin: 1rem 0;">
+                        <p><strong>Plot Type:</strong> Grouped Bar Chart with value labels</p>
+                        <p><strong>Comparison:</strong> Side-by-side wheat and rice production</p>
+                        <p><strong>States Analyzed:</strong> Top 5 producers by total output</p>
+                    </div>
+                    <p><strong>Key Observations:</strong></p>
+                    <ul style="margin-left: 2rem;">
+                        <li><strong>Uttar Pradesh:</strong> Total leader (43,700 thousand tonnes) - Wheat: 29,500 | Rice: 14,200</li>
+                        <li><strong>Punjab:</strong> Second highest (28,300) - Wheat-dominant due to Green Revolution success</li>
+                        <li><strong>West Bengal:</strong> Rice specialist (16,450) - Highest rice production in India</li>
+                        <li>These 5 states contribute approximately 62% of India's total food grain production</li>
+                    </ul>
+                    <p><strong>Citation:</strong> State-wise Agricultural Statistics (2023-24). Ministry of Agriculture & Farmers Welfare, data.gov.in</p>
+                </div>
+                
+                <h2>📈 Plot 4: Line Plot (Time Series)</h2>
+                <div style="background: white; padding: 1.5rem; border-radius: 10px; border: 2px solid #764ba2; margin-bottom: 2rem;">
+                    <h3 style="color: #764ba2;">India's Production Trends (2018-2024)</h3>
+                    <img src="line_plot.png" alt="Line Plot" style="width: 100%; max-width: 900px; display: block; margin: 1rem auto; border-radius: 8px; box-shadow: 0 4px 8px rgba(0,0,0,0.1);">
+                    <div style="background: #f8f9fa; padding: 1rem; border-radius: 5px; margin: 1rem 0;">
+                        <p><strong>Plot Type:</strong> Multi-line Time Series with markers and annotations</p>
+                        <p><strong>Time Period:</strong> 7 years (2018-2024)</p>
+                        <p><strong>Metrics:</strong> Year-wise wheat and rice production trends</p>
+                    </div>
+                    <p><strong>Key Observations:</strong></p>
+                    <ul style="margin-left: 2rem;">
+                        <li><strong>Wheat:</strong> 16.2% growth (98,500 → 114,500 thousand tonnes) | CAGR: 2.55%</li>
+                        <li><strong>Rice:</strong> 20.0% growth (116,480 → 139,800 thousand tonnes) | CAGR: 3.13%</li>
+                        <li>Both crops maintained positive growth during COVID-19, showing agricultural resilience</li>
+                        <li>2022 wheat production affected by unprecedented March heat wave, recovered by 2024</li>
+                        <li>Rice production acceleration due to DSR (Direct Seeded Rice) and improved varieties</li>
+                    </ul>
+                    <p><strong>Citation:</strong> Annual Report 2023-24. Ministry of Agriculture & Farmers Welfare, Government of India. data.gov.in</p>
+                </div>
+                
+                <h2>🔥  Plot 5: Heatmap</h2>
+                <div style="background: white; padding: 1.5rem; border-radius: 10px; border: 2px solid #667eea; margin-bottom: 2rem;">
+                    <h3 style="color: #667eea;">State-wise Agricultural Indicators (Normalized)</h3>
+                    <img src="heatmap.png" alt="Heatmap" style="width: 100%; max-width: 900px; display: block; margin: 1rem auto; border-radius: 8px; box-shadow: 0 4px 8px rgba(0,0,0,0.1);">
+                    <div style="background: #f8f9fa; padding: 1rem; border-radius: 5px; margin: 1rem 0;">
+                        <p><strong>Plot Type:</strong> Correlation Heatmap with normalized values</p>
+                        <p><strong>Metrics:</strong> Wheat Production, Rice Production, Rainfall (Normalized)</p>
+                        <p><strong>Purpose:</strong> Visual comparison across different scales</p>
+                    </div>
+                    <p><strong>Key Observations:</strong></p>
+                    <ul style="margin-left: 2rem;">
+                        <li>Normalized comparison enables fair assessment across different metrics</li>
+                        <li>Identifies high-performing states across multiple agricultural indicators</li>
+                        <li>Useful for policy-making and strategic resource allocation</li>
+                        <li>Green indicates above-average performance, red indicates below-average</li>
+                    </ul>
+                    <p><strong>Citation:</strong> Compiled from multiple datasets, Ministry of Agriculture, data.gov.in</p>
+                </div>
+                
+                <div style="background: linear-gradient(135deg, #667eea 0%, #764ba2 100%); color: white; padding: 2rem; border-radius: 15px; text-align: center;">
+                    <h2 style="color: white; border: none; margin-top: 0;">📁 Complete Project Repository</h2>
+                    <p style="font-size: 1.1rem; margin: 1rem 0;">All Python scripts, high-resolution plots (300 DPI), and detailed analysis documentation</p>
+                    <a href="https://github.com/ananyathakur53/data-science-analysis" target="_blank" 
+                       style="display: inline-block; background: white; color: #667eea; padding: 1rem 2rem; 
+                              border-radius: 25px; text-decoration: none; font-weight: bold; font-size: 1.1rem; margin-top: 1rem;">
+                        View on GitHub →
+                    </a>
+                    <p style="margin-top: 1.5rem; font-size: 0.95rem;">
+                        ⭐ Includes: data_analysis.py | All PNG plots | README.md with citations | requirements.txt
+                    </p>
+                </div>
+            </div>
+        </div><!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
@@ -444,7 +567,7 @@
                     </p>
                 </div>
                 
-                <h2>📈 Bonus Visualization: Line Plot</h2>
+                <h2>📈  Visualization: Line Plot</h2>
                 <div style="background: white; padding: 1rem; border-radius: 10px; border: 2px solid #764ba2; margin-bottom: 2rem;">
                     <h3 style="color: #764ba2;">India's Production Trends (2018-2024)</h3>
                     <div style="background: #f8f9fa; padding: 1rem; border-radius: 5px; margin: 1rem 0;">
